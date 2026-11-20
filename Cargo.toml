@@ -1,0 +1,19 @@
+[package]
+name = "lsp-koka"
+version = "0.1.0"
+edition = "2021"
+description = "Koka language-server bridge for Basalt (diagnostics and hover)"
+license = "Apache-2.0"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+basalt-plugin-sdk = { path = "../basalt-plugin-sdk" }
+serde_json = "1.0"
+
+[profile.release]
+opt-level = "s"
+lto = true
+strip = true
+codegen-units = 1
